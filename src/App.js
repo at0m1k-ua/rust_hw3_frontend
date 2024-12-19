@@ -26,7 +26,7 @@ function App() {
     });
 
     setNewTask("");
-    fetchTasks();
+    await fetchTasks();
   };
 
   const toggleComplete = async (id, completed) => {
@@ -36,12 +36,12 @@ function App() {
       body: JSON.stringify({ completed: !completed }),
     });
 
-    fetchTasks();
+    await fetchTasks();
   };
 
   const deleteTask = async (id) => {
     await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-    fetchTasks();
+    await fetchTasks();
   };
 
   const exportTasks = () => {
